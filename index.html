@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/item-series.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<style>
+.highcharts-figure, .highcharts-data-table table {
+    min-width: 320px; 
+    max-width: 800px;
+    margin: 1em auto;
+}
+
+.highcharts-data-table table {
+	font-family: Verdana, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid #EBEBEB;
+	margin: 10px auto;
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
+}
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+.highcharts-data-table th {
+	font-weight: 600;
+    padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+    padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
+
+input[type="number"] {
+	min-width: 50px;
+}
+</style>
+
+<figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+        Chart showing representatives in the German Parliament. The chart is
+        using the <code>item</code> series type with a semi circle layout.
+        Item charts create a number of items corresponding to the value of
+        each data point.
+    </p>
+</figure>
+
+<script>
+	Highcharts.chart('container', {
+
+    chart: {
+        type: 'item'
+    },
+
+    title: {
+        text: 'Highcharts item chart'
+    },
+
+    subtitle: {
+        text: 'Parliament visualization'
+    },
+
+    legend: {
+        labelFormat: '{name} <span style="opacity: 0.4">{y}</span>'
+    },
+
+    series: [{
+        name: 'Representatives',
+        keys: ['name', 'y', 'color', 'label'],
+        data: [
+            ['The Left', 69, '#BE3075', 'Accion Popular'],
+            ['Social Democratic Party', 153, '#EB001F', 'Alianza para el progreso'],
+            ['Alliance 90/The Greens', 67, '#64A12D', 'Fuerza Popular'],
+            ['Free Democratic Party', 80, '#FFED00', 'Frepap'],
+            ['Christian Democratic Union', 200, '#000000', 'Union por el Peru'],
+            ['Christian Social Union in Bavaria', 46, '#008AC5', 'Podemos peru'],
+            ['Alternative for Germany', 94, '#009EE0', 'Somos Peru']
+        ],
+        dataLabels: {
+            enabled: true,
+            format: '{point.label}'
+        },
+
+        // Circular options
+        center: ['50%', '88%'],
+        size: '170%',
+        startAngle: -100,
+        endAngle: 100
+    }]
+});
+
+
+</script>
+</body>
+</html>
