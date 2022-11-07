@@ -1,0 +1,206 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+|------------------------------------------------------------------------------
+| Override
+|------------------------------------------------------------------------------
+|
+| namespace: http://wrapbootstrap.com/preview/WB0T41TX4
+*/
+
+body {
+    font-weight: 300;
+
+    background-size: cover;
+    background: linear-gradient(rgb(30, 51, 100), rgb(3, 6, 11) 85%) no-repeat;
+
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    webkit-font-smoothing: antialiased;
+    will-change: transform;
+}
+
+.chronometer {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between; /* space-around*/
+}
+
+/**
+ * blue - #3C89D1
+ */
+.header {
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    align-items: center;
+    flex: 0 0 52px;
+    /*
+           flex-grow   -> 1 indica que puede crecer, 0 no crece
+           flex-shrink -> 1 indica que puede reducir, 0 no reduce
+           flex-basis  -> alto si su parent es flex-direction:column y/o ancho si su parent es flex-direction: row
+           */
+    width: 100%;
+}
+
+.header .title {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: normal;
+    margin:0;
+}
+
+.header .btn-menu {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 22px;
+    outline: none;
+    width: 26px;
+}
+
+.header .btn-menu div {
+    border-bottom: solid 3px rgba(255, 255, 255, 0.7);
+    width: 26px;
+    transition: all 300ms;
+}
+
+.main {
+    flex: 1 1 calc(100vh - 52px);
+
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    justify-content: flex-start;
+}
+
+.display,
+.actions {
+    margin-bottom: 15px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.actions {
+    flex: 0 0 52px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.actions .btn {
+    background: rgba(51, 51, 51, 0.3);
+    border: none;
+    border-radius: 7px;
+    color: white;
+    cursor: pointer;
+    flex: 1 1 200px;
+    margin: 5px;
+    outline: none;
+    transition: all .15s ease;
+    will-change: transform;
+    user-select: none;
+}
+
+.actions .btn:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.actions .btn:hover {
+    opacity: 1;
+}
+
+.actions .btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.actions .btn-green {
+    background: #2ebd59;
+}
+
+.actions .btn-green:hover {
+    background: #1ed760;
+}
+
+/*
+|------------------------------------------------------------------------
+|
+| Styles for Commands
+|
+|------------------------------------------------------------------------
+*/
+
+.display .state {
+    width: 100%;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.display .millis {
+    font-size: 3rem;
+}
+
+.display .segments {
+    color: #E1E1E1;
+    font-size: 7rem;
+    margin-bottom: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+
+/*
+|------------------------------------------------------------------------
+|
+| list-view
+|
+|------------------------------------------------------------------------
+*/
+
+.list-view {
+    font-size: 1rem;
+    font-weight: normal;
+    overflow-y: auto;
+    max-width: 500px;
+    width: 100%;
+}
+
+.list-view > .container {
+    padding: 0 15px;
+}
+
+.list-items {
+    overflow-y: auto;
+    padding: 0;
+}
+
+.list-items .list-item {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 5px;
+    transition: all 300ms;
+    user-select: none;
+}
+
+.list-items .list-item.selected,
+.list-items .list-item:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
